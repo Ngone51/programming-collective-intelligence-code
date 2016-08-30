@@ -58,7 +58,7 @@ class crawler:
   # Extract the text from an HTML page (no tags)
   def gettextonly(self,soup):
     v=soup.string
-    if v==Null:   
+    if v==None:   
       c=soup.contents
       resulttext=''
       for t in c:
