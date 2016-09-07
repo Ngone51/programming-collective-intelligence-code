@@ -83,7 +83,7 @@ def randomoptimize(domain,costf):
     if cost<best:
       best=cost
       bestr=r 
-  return r
+  return bestr
 
 def hillclimb(domain,costf):
   # Create a random solution
