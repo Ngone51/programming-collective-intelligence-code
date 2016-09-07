@@ -136,11 +136,13 @@ def annealingoptimize(domain,costf,T=10000.0,cool=0.95,step=1):
     # Calculate the current cost and the new cost
     ea=costf(vec)
     eb=costf(vecb)
-    p=pow(math.e,(-eb-ea)/T)
+    # if eb > ea, then the value p may have the error 'Numerical result out of range'
+    # p=pow(math.e,(-eb-ea)/T)
 
     # Is it better, or does it make the probability
     # cutoff?
-    if (eb<ea or random.random()<p):
+    # if eb < ea, then the calculate pow will pass and no error will point out
+    if (eb<ea or random.random()<pow(math.e,(-eb-ea)/T)):
       vec=vecb      
 
     # Decrease the temperature
